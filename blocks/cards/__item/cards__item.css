@@ -1,0 +1,10 @@
+.cards__item {
+    display: grid;
+    grid-template-columns: 1fr .4fr;
+    grid-template-rows: auto;
+    grid-template-areas: "image image" "title reaction";
+    background: #FFFFFF;
+    border-radius: 10px;
+    background-size: cover;
+    max-width: 282px;
+}

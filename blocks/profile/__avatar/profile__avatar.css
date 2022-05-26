@@ -1,0 +1,13 @@
+.profile__avatar{
+    background-image: url("../../../images/avatar.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    grid-area: avatar;
+}
+
+@media screen and (max-width: 767px){
+    .profile__avatar{
+        justify-self: center;
+    }
+}
