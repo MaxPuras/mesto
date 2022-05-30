@@ -1,4 +1,4 @@
-.header{
+.header {
     display: flex;
     flex-direction: column;
     width: calc(100% - 400px);
@@ -6,10 +6,11 @@
     margin-left: auto;
     min-height: 74px;
     padding: 45px 0 0 0;
+    border-bottom: 1px solid #545454;
 }
 
-@media screen and (max-width: 767px){
-    .header{
+@media screen and (max-width: 767px) {
+    .header {
         padding: 28px 0 0 0;
         width: 100%;
         min-height: 56px;

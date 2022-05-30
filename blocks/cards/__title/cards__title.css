@@ -4,8 +4,16 @@
     font-size: 24px;
     line-height: 29px;
     margin-left: 21px;
+    margin-top: 25px;
+    margin-bottom: 27px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     color: #000000;
+}
+
+@media screen and (max-width: 767px) {
+    .cards__title {
+        margin-top: 25px;
+    }
 }

@@ -1,8 +1,12 @@
-.header__logo{
+.header__logo {
     width: 142px;
     height: 33px;
     background-image: url("../../../images/logo/mesto_logo.svg");
     background-size: contain;
+}
+
+.header__logo:hover {
+    opacity: .6;
 }
 
 @media screen and (max-width: 767px) {

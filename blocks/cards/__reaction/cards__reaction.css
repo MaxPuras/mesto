@@ -1,10 +1,14 @@
-.cards__reaction{
+.cards__reaction {
     width: 22px;
     height: 19px;
-    background-image: url("../../../images/cards/reaction.svg");
     background-size: contain;
     grid-area: reaction;
     border: none;
     margin: auto;
     background-color: transparent;
+}
+
+.cards__reaction:hover {
+    opacity: 0.5;
+    cursor: pointer;
 }

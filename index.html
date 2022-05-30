@@ -8,57 +8,71 @@
     <link rel="stylesheet" href="pages/index.css">
     <title>Место</title>
 </head>
+
 <body class="body">
 <div class="page">
     <header class="header">
         <a class="header__logo" href="#"></a>
-        <div class="header__line"></div>
     </header>
 
     <section class="profile">
         <img class="profile__avatar" src="./images/avatar.svg" alt="Аватар">
         <h1 class="profile__info-title">Жак-Ив Кусто</h1>
-        <button class="profile__edit-button"></button>
+        <button class="profile__edit-button" type="button"></button>
         <p class="profile__info-subtitle">Исследователь океана</p>
-        <button class="profile__add-button"></button>
+        <button class="profile__add-button" type="button"></button>
     </section>
 
     <section class="cards">
         <ul class="cards__items">
             <li class="cards__item">
                 <img class="cards__image" src="./images/cards/karachaevsk.jpg" alt="Карачаевск">
-                <p class="cards__title">Карачаевск</p>
-                <button class="cards__reaction"></button>
+                <h2 class="cards__title">Карачаевск</h2>
+                <button class="cards__reaction cards__reaction_disabled" type="button"></button>
             </li>
             <li class="cards__item">
                 <img class="cards__image" src="./images/cards/elbrus.jpg" alt="Эльбрус">
-                <p class="cards__title">Гора Эльбрус</p>
-                <button class="cards__reaction"></button>
+                <h2 class="cards__title">Гора Эльбрус</h2>
+                <button class="cards__reaction cards__reaction_disabled" type="button"></button>
             </li>
             <li class="cards__item">
                 <img class="cards__image" src="./images/cards/dombay.jpg" alt="Домбай">
-                <p class="cards__title">Домбай</p>
-                <button class="cards__reaction"></button>
+                <h2 class="cards__title">Домбай</h2>
+                <button class="cards__reaction cards__reaction_disabled" type="button"></button>
             </li>
             <li class="cards__item">
                 <img class="cards__image" src="./images/cards/dombay.jpg" alt="Домбай">
-                <p class="cards__title">Домбай</p>
-                <button class="cards__reaction"></button>
+                <h2 class="cards__title">Домбай</h2>
+                <button class="cards__reaction cards__reaction_disabled" type="button"></button>
             </li>
             <li class="cards__item">
                 <img class="cards__image" src="./images/cards/elbrus.jpg" alt="Эльбрус">
-                <p class="cards__title">Эльбрус</p>
-                <button class="cards__reaction"></button>
+                <h2 class="cards__title">Эльбрус</h2>
+                <button class="cards__reaction cards__reaction_disabled" type="button"></button>
             </li>
             <li class="cards__item">
                 <img class="cards__image" src="./images/cards/karachaevsk.jpg" alt="Карачаевск">
-                <p class="cards__title">Карачево-Черкессия</p>
-                <button class="cards__reaction"></button>
+                <h2 class="cards__title">Карачево-Черкессия</h2>
+                <button class="cards__reaction cards__reaction_disabled" type="button"></button>
             </li>
         </ul>
     </section>
 
-    <footer class="footer"></footer>
+    <footer class="footer">
+        <p class="footer__copyright">© 2022 Max Puras</p>
+    </footer>
+    <div class="popup">
+        <div class="popup__container">
+            <div class="popup__dialog">
+                <button class="popup__close-button" type="button"></button>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input class="popup__input-title" type="text">
+                <input class="popup__input-subtitle" type="text">
+                <button class="popup__submit-button" type="submit">Сохранить</button>
+            </div>
+        </div>
+    </div>
 </div>
+<script src="script/script.js"></script>
 </body>
 </html>

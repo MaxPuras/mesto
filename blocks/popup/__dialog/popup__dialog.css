@@ -1,0 +1,17 @@
+.popup__dialog {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 430px;
+    height: 330px;
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 767px) {
+    .popup__dialog {
+        width: 282px;
+        height: 322px;
+    }
+}
+
