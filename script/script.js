@@ -24,20 +24,16 @@ function closePopupSubmit() {
     profileSubtitle.textContent = popupInputSubtitle.value;
 }
 
-// editButton.addEventListener('click', openModal);
-
 editButton.addEventListener('click', function () {
     openModal();
 });
 
 
-// close.addEventListener('click', closeModal);
 close.addEventListener('click', function () {
     closeModal();
 });
 
 
-// editSubmit.addEventListener('click', closePopupSubmit);
 editSubmit.addEventListener('click', function () {
     closePopupSubmit()
 });
