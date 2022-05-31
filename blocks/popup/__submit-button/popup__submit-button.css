@@ -2,7 +2,7 @@
     margin-right: auto;
     margin-left: auto;
     margin-top: 48px;
-    width: calc(100% - 70px);
+    width: 100%;
     background-color: black;
     color: #FFFFFF;
     font-weight: 400;
@@ -24,6 +24,5 @@
         font-size: 14px;
         line-height: 17px;
         margin-top: 45px;
-        width: calc(100% - 44px);
     }
 }

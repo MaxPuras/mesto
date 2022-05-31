@@ -10,12 +10,11 @@
     margin-top: 47px;
     padding: 0;
     height: 27px;
-    width: calc(100% - 72px);
+    width: 100%;
 }
 
 @media screen and (max-width: 767px) {
     .popup__input-title {
-        width: calc(100% - 44px);
         margin-top: 75px;
     }
 }

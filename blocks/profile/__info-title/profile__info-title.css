@@ -9,14 +9,17 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    padding: 0;
+    margin-bottom: 0;
 }
 
 @media screen and (max-width: 767px) {
     .profile__info-title {
+        margin-top: 26px;
         max-width: 189px;
-        margin-bottom: -5px;
-        margin-left: 46px;
+        margin-left: 65px;
         font-size: 27px;
         line-height: 33px;
+        text-align: center;
     }
 }
