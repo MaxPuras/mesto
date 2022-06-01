@@ -8,7 +8,7 @@
     font-size: 0;
     gap: 10px 30px;
     padding: 40px 0 0 0;
-    grid-template-areas: "avatar title title add_button" "avatar subtitle subtitle add_button";
+    grid-template-areas: "avatar title add_button" "avatar subtitle add_button";
 }
 
 @media screen and (max-width: 1023px) {
