@@ -12,35 +12,18 @@ function closePopup(e) {
     popup.classList.remove('popup_opened');
 }
 
-function submitPopup(e) {
-    e.preventDefault();
-    profileTitle.textContent = popupInputTitle.value;
-    profileSubtitle.textContent = popupInputSubtitle.value;
-    closePopup(e);
-}
-
-// function openPopup(e) {
-//     e.preventDefault();
-//     popup.classList.toggle('popup_opened')
-//     if (!popup.classList.contains('popup_opened')) {
-//         profileTitle.textContent = popupInputTitle.value;
-//         profileSubtitle.textContent = popupInputSubtitle.value;
-//     }
-//     else {
-//         popupInputTitle.value = profileTitle.textContent;
-//         popupInputSubtitle.value = profileSubtitle.textContent;
-//     }
-// }
-
-function openPopup(e) {
+function modal(e) {
     e.preventDefault();
     popup.classList.toggle('popup_opened')
-    if (popup.classList.contains('popup_opened')) {
+    if (!popup.classList.contains('popup_opened')) {
+        profileTitle.textContent = popupInputTitle.value;
+        profileSubtitle.textContent = popupInputSubtitle.value;
+    } else {
         popupInputTitle.value = profileTitle.textContent;
         popupInputSubtitle.value = profileSubtitle.textContent;
     }
 }
 
-editButton.addEventListener('click', openPopup);
-popupSubmitButton.addEventListener('click', submitPopup);
+editButton.addEventListener('click', modal);
+popupSubmitButton.addEventListener('click', modal);
 popupCloseButton.addEventListener('click', closePopup);
