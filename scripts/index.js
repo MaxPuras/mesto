@@ -1,5 +1,5 @@
-const editButton = document.querySelector('.profile__edit-button');
-const addButton = document.querySelector('.profile__add-button');
+const buttonEdit = document.querySelector('.profile__edit-button');
+const buttonAdd = document.querySelector('.profile__add-button');
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupAddCard = document.querySelector('.popup_add-card');
 const popupImage = document.querySelector('.popup_image');
@@ -95,11 +95,11 @@ popupAddCardSubmitButton.addEventListener('click', submitAddCard)
 
 popupEditProfileSubmitButton.addEventListener('click', submitProfile);
 
-editButton.addEventListener('click', () => {
+buttonEdit.addEventListener('click', () => {
     getFieldProfile();
 });
 
-addButton.addEventListener('click', () => {
+buttonAdd.addEventListener('click', () => {
     togglePopup(popupAddCard);
 });
 popupEditProfileCloseButton.addEventListener('click', () => {
