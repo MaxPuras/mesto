@@ -1,7 +1,7 @@
-.popup-image__container {
+.popup__container {
     display: flex;
     flex-direction: column;
-    position: fixed;
+    position: absolute;
     top: 195px;
     align-items: center;
     z-index: 4;
@@ -11,7 +11,7 @@
 }
 
 @media screen and (max-width: 767px) {
-    .popup-image__container {
+    .popup__container {
         top: 123px;
         max-width: 282px;
     }

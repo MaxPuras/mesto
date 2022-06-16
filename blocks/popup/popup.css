@@ -1,10 +1,14 @@
-.popup-add {
-    display: none;
+.popup {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .5s linear, opacity .5s linear;
+    display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
-.popup-add::before {
+.popup::before {
     content: '';
     background: black;
     position: fixed;

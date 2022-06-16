@@ -5,12 +5,6 @@
     padding: 51px 0 0 0;
 }
 
-/*@media screen and (max-width: 1279px) {*/
-/*    .cards {*/
-/*        width: calc(100% - 200px);*/
-/*    }*/
-/*}*/
-
 @media screen and (max-width: 767px) {
     .cards {
         padding: 36px 0 0 0;
