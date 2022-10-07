@@ -26,3 +26,10 @@
         margin-top: 13px;
     }
 }
+
+.popup__submit-button:disabled{
+    color: rgba(0, 0, 0, 0.2);
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    opacity: unset;
+}
