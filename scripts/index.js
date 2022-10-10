@@ -81,16 +81,22 @@ popups.forEach((popup) => {
     }
 )
 
-
 //Закрытие попапа
 const closePopup = (popup) => {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupByEsc);
     form.reset();
+    const inputList = Array.from(popup.querySelectorAll('.popup__input'));
+    inputList.forEach((inputElement) => {
+        hideInputError(popup, inputElement);
+    })
 }
 
 //Открытие попапа
 const openPopup = (popup) => {
+    const buttonElement = popup.querySelector('.popup__submit-button');
+    const inputList = Array.from(popup.querySelectorAll('.popup__input'));
+    toggleButtonState(inputList, buttonElement);
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupByEsc);
 }
