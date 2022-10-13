@@ -60,4 +60,14 @@ const checkInputValidity = (formElement, inputElement) => {
     }
 };
 
+//Обновление валидации и доступности кнопки сабмит при открытии формы
+function updateValidity(popup) {
+    const buttonElement = popup.querySelector('.popup__submit-button');
+    const inputList = Array.from(popup.querySelectorAll('.popup__input'));
+    toggleButtonState(inputList, buttonElement);
+    inputList.forEach((inputElement) => {
+        hideInputError(popup, inputElement);
+    })
+}
+
 enableValidation();

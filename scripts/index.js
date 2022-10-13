@@ -15,8 +15,8 @@ const popupImageItem = document.querySelector('.popup__image-item');
 const popupImageTitle = document.querySelector('.popup__image-title');
 const popups = document.querySelectorAll('.popup');
 const forms = document.forms;
-const addCardForm = forms.addCard;
-const editProfileForm = forms.editProfile;
+const сardAddForm = forms.addCard;
+const profileEditForm = forms.editProfile;
 
 //Функция создания карточки
 function createCard(card) {
@@ -69,13 +69,11 @@ function openPopupImage(card) {
     openPopup(popupImage);
 }
 
+//Слушатель на клик по оверлею. Закрытие попапа кликом вне области окна
 popups.forEach((popup) => {
         popup.addEventListener('mousedown', (event) => {
-            if (event.target.classList.contains('popup_opened')) {
-                closePopup(popup);
-            }
-            if (event.target.classList.contains('popup__close-button')) {
-                closePopup(popup);
+            if (event.target.classList.contains('popup_opened') || event.target.classList.contains('popup__close-button')) {
+                closePopup(popup)
             }
         })
     }
@@ -91,15 +89,6 @@ const closePopup = (popup) => {
 const openPopup = (popup) => {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupByEsc);
-}
-
-function updateValidity(popup) {
-    const buttonElement = popup.querySelector('.popup__submit-button');
-    const inputList = Array.from(popup.querySelectorAll('.popup__input'));
-    toggleButtonState(inputList, buttonElement);
-    inputList.forEach((inputElement) => {
-        hideInputError(popup, inputElement);
-    })
 }
 
 //Сохранение значений в попапе редактирования профиля
@@ -120,7 +109,7 @@ function handleSubmitAddCard(e) {
 
 //Получение полей профиля в попапе редактирование профиля. Октрытие попапа
 function openEditProfile() {
-    editProfileForm.reset();
+    profileEditForm.reset();
     updateValidity(popupEditProfile);
     openPopup(popupEditProfile);
     popupInputTitle.value = profileTitle.textContent;
@@ -128,7 +117,7 @@ function openEditProfile() {
 }
 
 function openAddCard() {
-    addCardForm.reset();
+    сardAddForm.reset();
     openPopup(popupAddCard, false);
     updateValidity(popupAddCard);
 }
