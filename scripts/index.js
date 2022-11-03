@@ -72,6 +72,7 @@ function handleSubmitAddCard(e) {
 function openEditProfile() {
     profileEditForm.reset();
     editProfileFormValidation.enableValidation();
+    addCardFormValidation.enableValidation();
     openPopup(popupEditProfile);
     popupInputTitle.value = profileTitle.textContent;
     popupInputSubtitle.value = profileSubtitle.textContent;
@@ -82,6 +83,7 @@ function openAddCard() {
     cardAddForm.reset();
     openPopup(popupAddCard, false);
     addCardFormValidation.enableValidation();
+    editProfileFormValidation.enableValidation();
 }
 
 popupAddCard.addEventListener('submit', handleSubmitAddCard)
