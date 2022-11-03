@@ -2,6 +2,8 @@ export class FormValidator {
     constructor(popup, config) {
         this._popup = popup;
         this._config = config;
+        this._inputList = Array.from(this._popup.querySelectorAll(this._config.inputSelector));
+        this._buttonElement = this._popup.querySelector(this._config.submitButtonSelector);
     }
 
     //Навешиваем валидаторы на форму для элементов инпут
@@ -9,33 +11,31 @@ export class FormValidator {
         this._popup.addEventListener('submit', function (evt) {
             evt.preventDefault();
         });
-        this._setEventListeners(this._popup);
+        this._setEventListeners();
         this._updateValidity();
     };
 
 //Проверка на невалидный инпут
-    _hasInvalidInput(inputList) {
-        return inputList.some((inputElement) => {
+    _hasInvalidInput() {
+        return this._inputList.some((inputElement) => {
             return !inputElement.validity.valid;
         });
     }
 
 //Навешиваем листенеры на инпуты и кнопку сабмита для формы
     _setEventListeners() {
-        const inputList = Array.from(this._popup.querySelectorAll(this._config.inputSelector));
-        const buttonElement = this._popup.querySelector(this._config.submitButtonSelector);
-        this._toggleButtonState(inputList, buttonElement);
-        inputList.forEach((inputElement) => {
+        this._toggleButtonState();
+        this._inputList.forEach((inputElement) => {
             inputElement.addEventListener('input', () => {
                 this._checkInputValidity(inputElement);
-                this._toggleButtonState(inputList, buttonElement);
+                this._toggleButtonState();
             });
         });
     };
 
 //Дизейблим кнопку сабмита формы, если инпут невалидный
-    _toggleButtonState(inputList, buttonElement) {
-        buttonElement.disabled = this._hasInvalidInput(inputList);
+    _toggleButtonState() {
+        this._buttonElement.disabled = this._hasInvalidInput();
     }
 
 //Показываем ошибку под полем
@@ -54,7 +54,6 @@ export class FormValidator {
         errorElement.textContent = '';
     };
 
-
 //Проверяем, если есть ошибка, то показываем
     _checkInputValidity(inputElement) {
         if (!inputElement.validity.valid) {
@@ -66,10 +65,8 @@ export class FormValidator {
 
 //Обновление валидации и доступности кнопки сабмит при открытии формы
     _updateValidity() {
-        const buttonElement = this._popup.querySelector(this._config.submitButtonSelector);
-        const inputList = Array.from(this._popup.querySelectorAll(this._config.inputSelector));
-        this._toggleButtonState(inputList, buttonElement);
-        inputList.forEach((inputElement) => {
+        this._toggleButtonState();
+        this._inputList.forEach((inputElement) => {
             this._hideInputError(inputElement);
         })
     }

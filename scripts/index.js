@@ -20,12 +20,6 @@ import {
 } from "./data.js";
 import {closePopup, openPopup} from "./utils.js";
 
-//Перебор массива карточек по умлочанию. Создание карточек
-initialCards.forEach((cardData) => {
-    const card = new Card(cardData, cardTemplate);
-    cardContainer.prepend(card.createCard());
-})
-
 //Объект конфигурации обработки ошибок
 const configValidation = {
     formSelector: '.popup__form',
@@ -35,6 +29,14 @@ const configValidation = {
     errorVisibleClass: 'popup__error_visible',
     errorSelector: '.popup__error'
 }
+
+const editProfileFormValidation = new FormValidator(popupEditProfile, configValidation);
+const addCardFormValidation = new FormValidator(popupAddCard, configValidation);
+
+//Перебор массива карточек по умлочанию. Создание карточек
+initialCards.forEach((cardData) => {
+    cardContainer.prepend(renderCard(cardData));
+})
 
 //Слушатель на клик по оверлею. Закрытие попапа кликом вне области окна
 popups.forEach((popup) => {
@@ -46,6 +48,11 @@ popups.forEach((popup) => {
     }
 )
 
+//Создание экземпляра класса создания карточки
+function renderCard(card) {
+    return new Card(card, cardTemplate).createCard();
+}
+
 //Сохранение значений в попапе редактирования профиля
 function handleSubmitProfile(e) {
     profileTitle.textContent = popupInputTitle.value;
@@ -56,8 +63,7 @@ function handleSubmitProfile(e) {
 
 //Сохранение значений в попапе добавления карточки
 function handleSubmitAddCard(e) {
-    const card = {name: popupInputCardName.value, link: popupInputCardLink.value}
-    cardContainer.prepend(new Card(card, cardTemplate).createCard());
+    cardContainer.prepend(renderCard({name: popupInputCardName.value, link: popupInputCardLink.value}));
     e.preventDefault();
     closePopup(popupAddCard);
 }
@@ -65,7 +71,7 @@ function handleSubmitAddCard(e) {
 //Получение полей профиля в попапе редактирование профиля. Октрытие попапа
 function openEditProfile() {
     profileEditForm.reset();
-    new FormValidator(popupEditProfile, configValidation).enableValidation();
+    editProfileFormValidation.enableValidation();
     openPopup(popupEditProfile);
     popupInputTitle.value = profileTitle.textContent;
     popupInputSubtitle.value = profileSubtitle.textContent;
@@ -75,7 +81,7 @@ function openEditProfile() {
 function openAddCard() {
     cardAddForm.reset();
     openPopup(popupAddCard, false);
-    new FormValidator(popupAddCard, configValidation).enableValidation();
+    addCardFormValidation.enableValidation();
 }
 
 popupAddCard.addEventListener('submit', handleSubmitAddCard)
