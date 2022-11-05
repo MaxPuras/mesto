@@ -33,6 +33,9 @@ const configValidation = {
 const editProfileFormValidation = new FormValidator(popupEditProfile, configValidation);
 const addCardFormValidation = new FormValidator(popupAddCard, configValidation);
 
+editProfileFormValidation.enableValidation();
+addCardFormValidation.enableValidation();
+
 //Перебор массива карточек по умлочанию. Создание карточек
 initialCards.forEach((cardData) => {
     cardContainer.prepend(renderCard(cardData));
@@ -71,8 +74,8 @@ function handleSubmitAddCard(e) {
 //Получение полей профиля в попапе редактирование профиля. Октрытие попапа
 function openEditProfile() {
     profileEditForm.reset();
-    editProfileFormValidation.enableValidation();
-    addCardFormValidation.enableValidation();
+    editProfileFormValidation.updateValidity();
+    addCardFormValidation.updateValidity();
     openPopup(popupEditProfile);
     popupInputTitle.value = profileTitle.textContent;
     popupInputSubtitle.value = profileSubtitle.textContent;
@@ -81,9 +84,9 @@ function openEditProfile() {
 //Открытие модалки добавления карточки
 function openAddCard() {
     cardAddForm.reset();
+    addCardFormValidation.updateValidity();
+    editProfileFormValidation.updateValidity();
     openPopup(popupAddCard, false);
-    addCardFormValidation.enableValidation();
-    editProfileFormValidation.enableValidation();
 }
 
 popupAddCard.addEventListener('submit', handleSubmitAddCard)

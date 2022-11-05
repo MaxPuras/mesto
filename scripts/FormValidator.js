@@ -12,7 +12,7 @@ export class FormValidator {
             evt.preventDefault();
         });
         this._setEventListeners();
-        this._updateValidity();
+        this.updateValidity();
     };
 
 //Проверка на невалидный инпут
@@ -64,7 +64,7 @@ export class FormValidator {
     };
 
 //Обновление валидации и доступности кнопки сабмит при открытии формы
-    _updateValidity() {
+    updateValidity() {
         this._toggleButtonState();
         this._inputList.forEach((inputElement) => {
             this._hideInputError(inputElement);
@@ -72,3 +72,5 @@ export class FormValidator {
     }
 
 }
+
+
